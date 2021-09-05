@@ -26,12 +26,6 @@ headers = {
 code_chars = list(string.ascii_lowercase) + ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 base = len(code_chars)
 
-# Converts digit to a letter based on character codes
-def digit_to_char(digit):
-    if digit < 10:
-        return str(digit)
-    return chr(ord('a') + digit - 10)
-
 # Returns the string representation of a number in a given base.
 def str_base(number, base):
     if number < 0:
@@ -40,6 +34,12 @@ def str_base(number, base):
     if d > 0:
         return str_base(d, base) + digit_to_char(m)
     return digit_to_char(m)
+
+# Converts digit to a letter based on character codes
+def digit_to_char(digit):
+    if digit < 10:
+        return str(digit)
+    return chr(ord('a') + digit - 10)
 
 # Returns the next code given the current code
 def next_code(curr_code):
@@ -64,7 +64,7 @@ def get_img(url, path):
 
 def main():
     parser = argparser.ArgumentParser()
-    parser.add_argument('--start_code', help='6 character string made up of lowercase letters and numbers which is '
+    parser.add_argument('--startcode', help='6 character string made up of lowercase letters and numbers which is '
                                              'where the scraper will start. e.g. abcdef -> abcdeg -> abcdeh',
                                         default='lj9me9')
     parser.add_argument('--timeout', help='The time out between requests.',
@@ -77,7 +77,7 @@ def main():
     if not os.path.exists(args.output):
         os.makedirs(args.output)
 
-    code = args.start_code
+    code = args.startcode
     for i in range(int(args.count)+1):
         code = next_code(code)
         try:

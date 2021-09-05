@@ -37,6 +37,11 @@ The script takes 3 arguments as follows:
   * e.g. ```output/```
   * default: ```output/```
 
+En example command you can try:
+```
+$ python3 scraper.py --start_code 33eeae --timeout 3 --count 30
+```
+
 # Licensing
  
 This project is released under the MIT license, see LICENSE.md for more details.

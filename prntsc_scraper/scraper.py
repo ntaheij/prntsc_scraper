@@ -88,5 +88,12 @@ def main():
             print(f"Error with image: {code}. Error: {e}")
         time.sleep(int(args.timeout))
 
+def test():
+    code = '33eeat'
+    url = get_img_url(code)
+    get_img(url, 'output/test')
+
+
+
 if __name__ == '__main__':
     main()
